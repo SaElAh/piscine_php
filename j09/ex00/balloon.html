@@ -1,0 +1,57 @@
+<html>
+    <head>
+        <style>
+            #circle{
+                border-radius: 50%;
+                width: 200px;
+                height: 200px;
+                margin-left: 500px;
+                margin-top: 250px;
+                background-color: red;
+            }    
+        </style>
+    </head>
+    <body>
+        <div id="circle">
+        </div>
+        <script>
+            var sisi = document.getElementById('circle');
+            sisi.style.backgroundColor = "red";            
+
+            circle.addEventListener('click', e => 
+            {
+                sisi.style.width = sisi.offsetWidth + 10;
+                sisi.style.height = sisi.offsetHeight + 10;
+                if (parseInt(sisi.style.width) > 420)
+                {
+                    sisi.style.width = 420;
+                    sisi.style.height = 420;
+                }
+                if (sisi.style.backgroundColor == "red")
+                    sisi.style.backgroundColor = "green";
+                else if (sisi.style.backgroundColor == "green")
+                    sisi.style.backgroundColor = "blue";
+                else if (sisi.style.backgroundColor == "blue")
+                    sisi.style.backgroundColor = "red";
+            });
+
+            circle.addEventListener('mouseleave', e => 
+            {
+                sisi.style.width =  sisi.offsetWidth - 5;
+                sisi.style.height = sisi.offsetHeight - 5;
+                if (parseInt(sisi.style.width) < 200)
+                {
+                    sisi.style.width = 200;
+                    sisi.style.height = 200;
+                }
+                if (sisi.style.backgroundColor == "red")
+                    sisi.style.backgroundColor = "blue";
+                else if (sisi.style.backgroundColor == "blue")
+                    sisi.style.backgroundColor = "green";
+                else if (sisi.style.backgroundColor == "green")
+                    sisi.style.backgroundColor = "red";
+            });
+    
+            </script> 
+    </body>
+</html>

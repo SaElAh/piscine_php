@@ -1,0 +1,61 @@
+<html>
+    <head>
+    <meta charset="UTF-8">
+    <style>
+            
+        </style>
+    </head>
+    <body style="margin-top: 200px; margin-left: 200px">
+        <form id="ALLO">
+            <input type="text" name="nb1">
+            <select name="operator">
+                <option value="+">+</option>
+                <option value="-">-</option>
+                <option value="*">*</option>
+                <option value="/">/</option>
+                <option value="%">%</option>
+            </select>
+            <input type="text" name="nb2">
+            <input type="submit" value="Try me!" name="gogo" onclick="submitform()">
+        </form>
+        <script>  
+            setInterval(function()
+            {
+                alert("Please, use me..."); 
+            }, 30000)
+            var caculate = {
+                '+': function(nb1, nb2) { return nb1 + nb2 },
+                '-': function(nb1, nb2) { return nb1 - nb2 },
+                '*': function(nb1, nb2) { return nb1 * nb2 },
+                '/': function(nb1, nb2) { return nb1 / nb2 },
+                '%': function(nb1, nb2) { return nb1 % nb2 }
+            }
+            function submitform()
+            {
+                var submit = document.getElementsByName("gogo")[0].value;
+                var operator = document.getElementsByName("operator")[0].value;
+                var nb1 = document.getElementsByName("nb1")[0].value;
+                var nb2 = document.getElementsByName("nb2")[0].value;
+
+                if (!(/^\d+$/.test(nb1)) || !(/^\d+$/.test(nb2)))
+                    return (alert("Error :("));
+                nb1 = parseInt(nb1);
+                nb2 = parseInt(nb2);
+                
+                if (nb1 < 0 || nb2 < 0)
+                    return (alert(("Error :(")));
+                if (nb2 == 0 && (operator == "/" || operator == "%"))
+                {    
+                    console.log("It’s over 9000!");
+                    return (alert("It’s over 9000!"));
+                }
+                var res = 0;
+                if (caculate.hasOwnProperty(operator)) {
+                    res = caculate[operator](nb1, nb2);
+                }
+                console.log(res);
+                alert(res); 
+            }
+        </script>
+    </body>
+</html>
